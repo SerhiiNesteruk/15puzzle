@@ -4,6 +4,8 @@ import cats.effect.IO
 
 object Main extends App {
   val game = for {
+    _ <- IO(println("Greetings traveler! Use w,a,s,d to swap or quit to quit the game. Good Luck!"))
+
     puzzle <- IO(new FifteenPuzzle())
     initState <- IO(puzzle.init)
     _ <- gameLoop(puzzle, initState)
